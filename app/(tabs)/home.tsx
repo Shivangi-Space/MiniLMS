@@ -29,7 +29,12 @@ export default function Home() {
                     id: product.id,
                     title: product.title,
                     description: product.description,
-                    thumbnail: product.thumbnail,
+                    thumbnail:
+                        product.images?.[0] &&
+                            product.images[0].includes('dummyjson')
+                            ? `https://picsum.photos/seed/${product.id}/800/400`
+                            : product.images?.[0],
+
                     price: product.price,
                     instructor: `${teacher.name.first} ${teacher.name.last}`,
                     instructorImage: teacher.picture.medium,
