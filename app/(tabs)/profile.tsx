@@ -14,14 +14,12 @@ export default function Profile() {
 
   return (
     <View className="flex-1 bg-gray-50 p-6">
-      {/* Profile Header Section */}
       <View className="items-center mt-10 mb-8">
         {hasRealAvatar ? (
           <Image
             source={{ uri: user.avatar.url }}
             className="w-32 h-32 rounded-full border-4 border-white shadow-sm"
             contentFit="cover"
-            // WHY: If the image fails to load, we can show a placeholder locally
             cachePolicy="disk"
           />
         ) : (
@@ -34,7 +32,6 @@ export default function Profile() {
         <Text className="text-gray-500">{user?.email || 'No email provided'}</Text>
       </View>
 
-      {/* Stats Section */}
       <View className="flex-row justify-between mb-8">
         <View className="bg-white p-4 rounded-2xl flex-1 mr-2 items-center shadow-sm border border-gray-100">
           <BookOpen size={20} color="#2563eb" className="mb-1" />
@@ -48,7 +45,6 @@ export default function Profile() {
         </View>
       </View>
 
-      {/* Action Section */}
       <TouchableOpacity 
         onPress={logout}
         activeOpacity={0.7}
