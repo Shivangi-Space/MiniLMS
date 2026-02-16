@@ -33,6 +33,12 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.myexpoapp"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "875063ad-3eac-4883-8a8b-e8c825a38782"
+      }
     }
   }
 }
