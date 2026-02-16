@@ -92,6 +92,7 @@ export default function Home() {
                 <Search size={20} color="#9ca3af" />
                 <TextInput
                     placeholder='Search courses...'
+                    placeholderTextColor="#999"
                     value={searchQuery}
                     onChangeText={setSearchQuery}
                     className="flex-1 ml-3 text-base text-gray-900"

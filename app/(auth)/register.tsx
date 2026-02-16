@@ -50,9 +50,10 @@ export default function Register() {
             <Text className="text-gray-700 font-semibold mb-2 ml-1">Username</Text>
             <TextInput
               placeholder="Pick a unique username"
+              placeholderTextColor="#999"
               value={form.username}
               onChangeText={(val) => setForm({ ...form, username: val })}
-              className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base"
+              className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base text-gray-950"
               autoCapitalize="none"
             />
           </View>
@@ -61,9 +62,10 @@ export default function Register() {
             <Text className="text-gray-700 font-semibold mb-2 ml-1">Email</Text>
             <TextInput
               placeholder="your@email.com"
+              placeholderTextColor="#999"
               value={form.email}
               onChangeText={(val) => setForm({ ...form, email: val })}
-              className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base"
+              className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base text-gray-950"
               keyboardType="email-address"
               autoCapitalize="none"
             />
@@ -73,9 +75,10 @@ export default function Register() {
             <Text className="text-gray-700 font-semibold mb-2 ml-1">Password</Text>
             <TextInput
               placeholder="Create a strong password"
+              placeholderTextColor="#999"
               value={form.password}
               onChangeText={(val) => setForm({ ...form, password: val })}
-              className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base"
+              className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base text-gray-950"
               secureTextEntry
             />
           </View>

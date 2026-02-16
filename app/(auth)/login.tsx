@@ -45,17 +45,19 @@ export default function Login() {
       <View className="gap-y-4">
         <TextInput
           placeholder="Username"
+          placeholderTextColor="#999"
           value={username}
           onChangeText={setUsername}
-          className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base"
+          className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base text-gray-950"
           autoCapitalize="none"
         />
 
         <TextInput
           placeholder="Password"
+          placeholderTextColor="#999"
           value={password}
           onChangeText={setPassword}
-          className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base"
+          className="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-base text-gray-950"
           secureTextEntry
         />
 
