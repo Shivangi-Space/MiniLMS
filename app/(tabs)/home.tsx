@@ -5,6 +5,7 @@ import { Search } from 'lucide-react-native';
 import apiClient from '../../src/api/client';
 import { CourseCard } from '../../src/components/CourseCard';
 import { Course, Instructor } from '../../src/types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Home() {
 
@@ -40,9 +41,14 @@ export default function Home() {
                     instructorImage: teacher.picture.medium,
                 };
             });
+            await AsyncStorage.setItem('cached_courses', JSON.stringify(mergedData));
             setCourses(mergedData);
 
         } catch (error) {
+            const cached = await AsyncStorage.getItem('cached_courses');
+            if(cached) {
+                setCourses(JSON.parse(cached));
+            }
             console.log("Fetch error", error);
         } finally {
             setLoading(false);

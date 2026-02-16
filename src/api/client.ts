@@ -8,8 +8,30 @@ const apiClient = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },  
-    timeout: 10000,
+    timeout: 15000,
 });
+
+const MAX_RETRIES = 3;
+
+apiClient.interceptors.response.use(
+    (response) => response,
+    async(error) => {
+        const {config} = error;
+
+        const shouldRetry = !error.response || (error.response.status >= 500 && error.response.status <= 599);
+
+        if(shouldRetry && (!config._retryCount || config._retryCount < MAX_RETRIES)) {
+            config._retryCount = (config._retryCount || 0) +1;
+
+            const backOffDelay = Math.pow(2, config._retryCount) * 1000;
+            console.log(`Retry attempt ${config._retryCount} in ${backOffDelay}ms`);
+
+            await new Promise(resolve => setTimeout(resolve, backOffDelay));
+            return apiClient(config);
+        }
+        return Promise.reject(error);
+    }
+);
 
 apiClient.interceptors.request.use( async (config) => {
     const token = await Storage.getItem(TOKEN_KEY);
