@@ -6,7 +6,7 @@ import apiClient from '../../src/api/client';
 
 export default function Login() {
   const router = useRouter();
-  const { login } = useAuth(); // From our AuthContext
+  const { login } = useAuth(); 
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -37,7 +37,7 @@ export default function Login() {
 
   return (
     <View className="flex-1 bg-white p-6 justify-center">
-      <View className="mb-10">
+      <View className="mb-10 justify-center items-center">
         <Text className="text-4xl font-black text-gray-900">Welcome</Text>
         <Text className="text-gray-500 text-lg mt-2">Sign in to your account</Text>
       </View>

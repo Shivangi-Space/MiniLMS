@@ -24,7 +24,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     checkLogin();
   }, []);
 
-  // Protect Routes: Redirect based on auth state
   useEffect(() => {
     if (isLoading) return;
     const inAuthGroup = segments[0] === '(auth)';
@@ -32,7 +31,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (!token && !inAuthGroup && segments.length > 0) {
       router.replace('/(auth)/login');
     } else if (token && inAuthGroup) {
-      router.replace('/(tabs)/home'); // We'll create tabs next
+      router.replace('/(tabs)/home'); 
     }
   }, [token, segments, isLoading]);
 
@@ -40,7 +39,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const savedToken = await Storage.getItem(TOKEN_KEY);
       if (savedToken) {
-        // Basic check: fetch profile to see if token is valid
         const response = await apiClient.get('/users/current-user');
         setUser(response.data.data);
         setToken(savedToken);

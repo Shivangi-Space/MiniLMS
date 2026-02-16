@@ -8,7 +8,7 @@ export default function WelcomeScreen() {
   const { token, isLoading } = useAuth();
 
   useEffect(() => {
-    // If we have a token, skip this screen and go to Home
+
     if (!isLoading && token) {
       router.replace('/home'); 
     }
@@ -36,7 +36,7 @@ export default function WelcomeScreen() {
         <View className="w-full mt-12 gap-4"> 
           <TouchableOpacity 
             activeOpacity={0.8}
-            onPress={() => router.push('/login')} // Simplified Path
+            onPress={() => router.push('/login')} 
             className="bg-blue-600 w-full py-5 rounded-2xl items-center shadow-lg shadow-blue-300"
           >
             <Text className="text-white font-bold text-lg">Get Started</Text>
@@ -44,7 +44,7 @@ export default function WelcomeScreen() {
           
           <TouchableOpacity 
             activeOpacity={0.6}
-            onPress={() => router.push('/register')} // Simplified Path
+            onPress={() => router.push('/register')}
             className="w-full py-4 items-center"
           >
             <Text className="text-gray-600 font-semibold text-base">Create an account</Text>
