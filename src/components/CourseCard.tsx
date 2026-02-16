@@ -4,11 +4,14 @@ import { Image } from 'expo-image';
 import { Bookmark, Star } from 'lucide-react-native';
 import { Course } from '../types';
 import { useRouter } from 'expo-router';
+import { useBookmarks } from '@/store/BookmarkContext';
 import { cssInterop } from 'nativewind';
 
 cssInterop(Image, { className: 'style' });
 
 export const CourseCard = memo(({ item }: { item: Course }) => {
+    const { toggleBookmark, isBookmarked } = useBookmarks();
+    const bookmarked = isBookmarked(item.id);
     const router = useRouter();
 
     // console.log('Thumbnail URL:', item.thumbnail);
@@ -38,7 +41,7 @@ export const CourseCard = memo(({ item }: { item: Course }) => {
                     source={{ uri: imageSource }}
                     contentFit="cover"
                     transition={500}
-                    className="w-full h-48 bg-gray-200" 
+                    className="w-full h-40 bg-gray-200"
                 />
 
 
@@ -47,7 +50,7 @@ export const CourseCard = memo(({ item }: { item: Course }) => {
                         {item.title}
                     </Text>
 
-                    <Text className="text-gray-500 text-sm mb-4" numberOfLines={2}>
+                    <Text className="text-gray-500 text-sm mb-2" numberOfLines={2}>
                         {item.description}
                     </Text>
 
@@ -60,8 +63,11 @@ export const CourseCard = memo(({ item }: { item: Course }) => {
                             <Text className="text-gray-700 ml-2 font-medium">{item.instructor}</Text>
                         </View>
 
-                        <TouchableOpacity className="p-2 bg-gray-50 rounded-full">
-                            <Bookmark size={20} color="#4b5563" />
+                        <TouchableOpacity
+                            onPress={() => toggleBookmark(item.id)}
+                            className={`p-2 rounded-full ${bookmarked ? 'bg-blue-600' : 'bg-gray-50'}`}
+                        >
+                            <Bookmark size={20} color={bookmarked ? "white" : "#4b5563"} fill={bookmarked ? "white" : "none"} />
                         </TouchableOpacity>
                     </View>
                 </View>

@@ -6,7 +6,7 @@ export interface Instructor {
 
 export interface Course {
     title: string;
-    id: string;
+    id: number;
     name: string;
     description: string;
     price: number;
