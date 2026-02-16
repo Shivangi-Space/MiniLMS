@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { View, Text, TextInput, ActivityIndicator, RefreshControl } from 'react-native';
-import { LegendList } from '@legendapp/list'; // The high-performance list
+import { LegendList } from '@legendapp/list'; 
 import { Search } from 'lucide-react-native';
 import apiClient from '../../src/api/client';
 import { CourseCard } from '../../src/components/CourseCard';
@@ -49,7 +49,6 @@ export default function Home() {
             if(cached) {
                 setCourses(JSON.parse(cached));
             }
-            console.log("Fetch error", error);
         } finally {
             setLoading(false);
             setRefreshing(false);
@@ -80,7 +79,7 @@ export default function Home() {
     }
 
     return (
-        <View className="flex-1 bg-white px-5 pt-4">
+        <View className="flex-1 bg-white px-5 pt-14">
             <Text className="text-3xl font-black text-gray-900 mb-1">
                 Explore
             </Text>
@@ -89,7 +88,7 @@ export default function Home() {
                 Find the perfect course for you.
             </Text>
 
-            <View className="flex-row items-center bg-gray-100 px-4 py-3 rounded-2xl mb-6">
+            <View className="flex-row items-center bg-gray-100 px-4 py-1 rounded-2xl mb-6">
                 <Search size={20} color="#9ca3af" />
                 <TextInput
                     placeholder='Search courses...'

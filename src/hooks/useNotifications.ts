@@ -55,8 +55,6 @@ export const useNotifications = () => {
         });
     };
 
-
-    // Requirement: Notify when user bookmarks 5+ courses
     const notifyBookmarkGoal = async (count: number) => {
         if (count === 5) {
             await Notifications.scheduleNotificationAsync({
@@ -64,7 +62,7 @@ export const useNotifications = () => {
                     title: "Course Enthusiast! 🌟",
                     body: "You have bookmarked 5 courses. Time to start learning one?",
                 },
-                trigger: null, // Send immediately
+                trigger: null,
             });
         }
     };

@@ -13,7 +13,7 @@ export default function Profile() {
   const hasRealAvatar = user?.avatar?.url && !user.avatar.url.includes('placeholder');
 
   return (
-    <View className="flex-1 bg-gray-50 p-6">
+    <View className="flex-1 bg-gray-50 p-6 pt-14">
       <View className="items-center mt-10 mb-8">
         {hasRealAvatar ? (
           <Image

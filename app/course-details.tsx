@@ -8,11 +8,9 @@ import { useAuth } from '../src/store/AuthContext';
 export default function CourseDetails() {
   const { title, instructor, id } = useLocalSearchParams();
   const router = useRouter();
-  const { token } = useAuth(); // We'll pass this in headers
+  const { token } = useAuth(); 
   const [loading, setLoading] = useState(true);
 
-  // WHY: This is the local HTML template. In a real-world app, 
-  // this would be a URL to your web portal.
   const localHtml = `
     <html>
       <head>
@@ -81,7 +79,6 @@ export default function CourseDetails() {
           )}
           
           injectedJavaScript={`
-            console.log("WebView Initialized with Token: ${token}");
             window.ReactNativeWebView.postMessage("Web page is ready");
           `}
         />

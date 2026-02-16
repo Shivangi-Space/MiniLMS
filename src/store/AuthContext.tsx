@@ -31,7 +31,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (!token && !inAuthGroup && segments.length > 0) {
       router.replace('/(auth)/login');
     } else if (token && inAuthGroup) {
-      router.replace('/(tabs)/home'); // We'll create tabs next
+      router.replace('/(tabs)/home'); 
     }
   }, [token, segments, isLoading]);
 

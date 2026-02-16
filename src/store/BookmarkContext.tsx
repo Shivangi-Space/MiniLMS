@@ -12,7 +12,7 @@ const BookmarkContext = createContext<BookmarkContextType | undefined>(undefined
 
 export const BookmarkProvider = ({ children }: { children: React.ReactNode }) => {
   const [bookmarks, setBookmarks] = useState<number[]>([]);
-  const { notifyBookmarkGoal } = useNotifications(); // Custom hook from above
+  const { notifyBookmarkGoal } = useNotifications();
 
   useEffect(() => {
     loadBookmarks();
@@ -29,7 +29,6 @@ export const BookmarkProvider = ({ children }: { children: React.ReactNode }) =>
       newBookmarks = newBookmarks.filter(id => id !== courseId);
     } else {
       newBookmarks.push(courseId);
-      // WHY: Trigger notification logic if count hits 5
       notifyBookmarkGoal(newBookmarks.length);
     }
     setBookmarks(newBookmarks);

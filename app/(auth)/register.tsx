@@ -7,7 +7,6 @@ export default function Register() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   
-  // Form State
   const [form, setForm] = useState({
     username: '',
     email: '',
@@ -26,7 +25,7 @@ export default function Register() {
         username,
         email,
         password,
-        role: "USER" // Required by FreeAPI
+        role: "USER" 
       });
       
       Alert.alert('Success', 'Account created! Please login.', [
@@ -42,7 +41,7 @@ export default function Register() {
 
   return (
     <ScrollView className="flex-1 bg-white">
-      <View className="p-6 pt-20">
+      <View className="p-6 pt-40 justify-center">
         <Text className="text-4xl font-black text-gray-900">Join Us</Text>
         <Text className="text-gray-500 mt-2 mb-10 text-lg">Create an account to start learning.</Text>
 

@@ -24,7 +24,6 @@ apiClient.interceptors.response.use(
             config._retryCount = (config._retryCount || 0) +1;
 
             const backOffDelay = Math.pow(2, config._retryCount) * 1000;
-            console.log(`Retry attempt ${config._retryCount} in ${backOffDelay}ms`);
 
             await new Promise(resolve => setTimeout(resolve, backOffDelay));
             return apiClient(config);

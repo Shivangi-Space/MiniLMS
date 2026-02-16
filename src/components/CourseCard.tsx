@@ -14,8 +14,6 @@ export const CourseCard = memo(({ item }: { item: Course }) => {
     const bookmarked = isBookmarked(item.id);
     const router = useRouter();
 
-    // console.log('Thumbnail URL:', item.thumbnail);
-
     const imageSource =
         item.thumbnail?.startsWith('https')
             ? item.thumbnail
